@@ -424,17 +424,13 @@ label[class$=font-size-16]{line-height:1.6rem!important}
 
             &.govuk-\!-width-full {
                 width: auto !important;
+                margin-left: govuk-spacing(3);
             }
         }
         .govuk-button-group {
             margin-top: govuk-spacing(3); 
             margin-bottom: - (govuk-spacing(2));
         }  
-
-        /*.govuk-grid-column-one-third.govuk-\!-padding-left-0 {
-            padding-left: govuk-spacing(3) !important;
-        }*/
-
     }
 
     //@media (max-width: 40em) {/* pt2: fix for a brief moment when select escapes border at certain resize width */
