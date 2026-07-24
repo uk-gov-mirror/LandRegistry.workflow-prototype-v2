@@ -424,7 +424,8 @@ label[class$=font-size-16]{line-height:1.6rem!important}
 
             &.govuk-\!-width-full {
                 width: auto !important;
-                margin-left: govuk-spacing(3);
+                margin-left: 0; 
+                //margin-left: govuk-spacing(3);
             }
         }
         .govuk-button-group {
