@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{# set pageName="Select a category of work" #}
+
+{% block pageTitle %}
+Extention of time index - dates
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+          
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-9">
+            
+            Deferrals - Extension of times
+            
+          </h1>
+
+          <p class="govuk-body">
+            Links open in new tab.
+          </p>          
+
+          <ul class="govuk-list govuk-list--spaced govuk-list--bullet">
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/deferrals/form-1.html" target="_blank">Standard design / form</a><br>
+              <span class="govuk-!-font-size-16">Requisition &amp; Partial reply: representative example</span>
+            </li>
+            <li>
+              <a class="govuk-link govuk-link--no-visited-state" href="/deferrals/form-1-with-date-error.html" target="_blank">Standard design / form with error</a><br>
+              <span class="govuk-!-font-size-16">Representative design example ('Select' has been 'clicked')</span>
+            </li>            
+          </ul>
+
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+          
+          <h2 class="govuk-heading-s govuk-!-margin-bottom-9">
+            Error messages 
+          </h2>
+
+          <p class="govuk-body">
+            Dates are optional, but if a value has been added (and the main 'Select' button selected):
+          </p>
+
+          <ul class="govuk-list govuk-list--bullet">
+
+            <li>The extension of time date must include a day</li>
+            <li>The extension of time date must include a month</li>
+            <li>The extension of time date must include a year</li>
+            <li>The extension of time date must be a real date</li>
+            <li>The extension of time date must be in the future</li>
+            <li>Year must include 4 numbers</li> 
+     
+          </ul>
+
+          <p class="govuk-body">Some (<b>to be confirmed</b>) requirements include:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>The new extention date must be later than the date already in use on the application: This will require an additional error message (see above) ***</li>
+            <li>Dates must be a working day. The custom days should automatically count only working days. The date entry form must fire a validation message if the date is not a working day (see above) ***</li>
+            <li>We may need to improve the hint text for dates with an explaination: e.g, &quot;Extend the .... date&quot;.</li>
+            
+
+            <li>Update reset JS code to clear values in text inputs</li>
+          </ul>          
+
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

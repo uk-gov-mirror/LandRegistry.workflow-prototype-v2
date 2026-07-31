@@ -1,0 +1,252 @@
+{% extends "layouts/wf_layout_legacy.html" %}
+
+{# set pageName="Select a category of work" #}
+
+{% block pageTitle %}
+Select a deferral reason
+{% endblock %}
+
+{% block beforeContent %}
+
+
+<a href="#" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <form action="#" id="deferral-form" method="post" novalidate>
+
+      <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+              <h1 class="govuk-fieldset__heading">
+                  Select a deferral reason
+              </h1>
+            </legend>
+
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              
+              <!--div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="id_DIS" type="radio" name="category_code" value="DIS">
+                
+                <label class="govuk-label govuk-radios__label" for="id_DIS">
+                  Awaiting discharge only (no requisition)
+                </label>
+              </div-->
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="id_REQN" type="radio" name="category_code" value="REQN" data-aria-controls="conditional-req">
+                <label class="govuk-label govuk-radios__label" for="id_REQN">
+                  Requisition
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-req">
+                
+                <!--div class="govuk-form-group">
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">  
+                      <input class="govuk-checkboxes__input" id="return-to-me-req" type="checkbox" name="requisition-option" value="return-to-me-req">
+                      <label class="govuk-label govuk-checkboxes__label" for="return-to-me-req">
+                        Return to me (optional)
+                      </label>
+                    </div>
+                  </div>
+                </div-->
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-visually-hidden">
+                      Requisition options
+                    </legend>
+                    <div class="govuk-radios govuk-radios--small" data-module="govuk-radios" data-govuk-radios-init="">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="defer-vol" name="requisition-option" type="radio" value="defer-vol">
+                        <label class="govuk-label govuk-radios__label" for="defer-vol">
+                          Defer to <abbr>VCO</abbr> <abbr>ADR</abbr> (optional)
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="return-to" name="requisition-option" type="radio" value="return-to">
+                        <label class="govuk-label govuk-radios__label" for="return-to">
+                          Return to me (optional)
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>                
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="requisition-date-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular">
+
+                        Extension of time &dash; bring forward (optional)        <!--Extension of time <span class="govuk-!-font-weight-regular">&dash; bring forward (optional)</span>-->
+
+                    </legend>
+                    <div id="requisition-date-hint" class="govuk-hint govuk-!-font-size-16">
+                      For example, 25 9 2026
+                    </div>
+                    <div class="govuk-date-input" id="requisition-date">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label govuk-!-font-size-16" for="requisition-date-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="requisition-date-day" name="requisition-date-day" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label govuk-!-font-size-16" for="requisition-date-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="requisition-date-month" name="requisition-date-month" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label govuk-!-font-size-16" for="requisition-date-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="requisition-date-year" name="requisition-date-year" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>  
+
+              </div>              
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="id_NOTICE" type="radio" name="category_code" value="NOTICE" data-aria-controls="conditional-par">
+
+                <label class="govuk-label govuk-radios__label" for="id_NOTICE">
+                  Partial reply
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-par">
+
+                <div class="govuk-form-group">
+                  <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">  
+                      <input class="govuk-checkboxes__input" id="return-to-me-par" type="checkbox" name="requisition-option" value="return-to-me-par">
+                      <label class="govuk-label govuk-checkboxes__label" for="return-to-me-par">
+                        Return to me (optional)
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="partial-date-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular">
+
+                        Extension of time <span class="govuk-!-font-weight-regular">&dash; lorum ipsum (optional)</span>
+
+                    </legend>
+                    <div id="partial-date-hint" class="govuk-hint govuk-!-font-size-16">
+                      For example, 25 9 2026
+                    </div>
+                    <div class="govuk-date-input" id="partial-date">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label govuk-!-font-size-16" for="partial-date-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="partial-date-day" name="partial-date-day" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label govuk-!-font-size-16" for="partial-date-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="partial-date-month" name="partial-date-month" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label govuk-!-font-size-16" for="partial-date-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="partial-date-year" name="partial-date-year" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div> 
+
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="id_REQNNOTICE" type="radio" name="category_code" value="REQNNOTICE">
+
+                <label class="govuk-label govuk-radios__label" for="id_REQNNOTICE">
+                  Reminder issued
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="id_PL" type="radio" name="category_code" value="PL">
+
+                <label class="govuk-label govuk-radios__label" for="id_PL">
+                  Extension of time
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="x1" type="radio" name="category_code" value="x1">
+
+                <label class="govuk-label govuk-radios__label" for="x1">
+                  Objection notice (15 days) 
+                </label>
+              </div>
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="x2" type="radio" name="category_code" value="x2">
+
+                <label class="govuk-label govuk-radios__label" for="x2">
+                  Objection notice (15 days) and Requisition 
+                </label>
+              </div> 
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="x3" type="radio" name="category_code" value="x3">
+
+                <label class="govuk-label govuk-radios__label" for="x3">
+                  Progress later
+                </label>
+              </div>           
+
+            </div>
+              
+            <!-- if users navs back this will clear session value if no selection made -->
+            <!--input type="hidden" name="category_code" value=""-->
+
+
+          </fieldset>
+      </div>
+
+        <!--input type="hidden" name="lr_ref_number" value="DU164184">
+        <input type="hidden" name="lr_work_ref" value="L967RWW">
+        <input type="hidden" name="client" value="False"-->
+        <input type="hidden" name="days" value="">
+
+        
+        <input type="submit" class="govuk-button" value="Select"> 
+
+
+
+    </form>
+
+
+  </div>
+</div>
+
+
+{% endblock %}
