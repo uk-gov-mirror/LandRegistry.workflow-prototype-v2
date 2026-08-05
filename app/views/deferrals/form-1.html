@@ -237,8 +237,13 @@ Select a deferral reason
         <input type="hidden" name="client" value="False"-->
         <input type="hidden" name="days" value="">
 
-        
-        <input type="submit" class="govuk-button" value="Select"> 
+        <!--input type="submit" class="govuk-button" value="Select"--> 
+
+
+        <div class="govuk-button-group">
+          <input type="submit" class="govuk-button" value="Select"> 
+          <input id="reset-btn" type="reset" class="govuk-button govuk-button--secondary">
+        </div>  
 
 
 
@@ -278,6 +283,8 @@ Select a deferral reason
   }
   //************************ reset button for this form ends **********************
 });
+
+
 
 </script>
 
