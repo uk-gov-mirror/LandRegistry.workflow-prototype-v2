@@ -146,7 +146,7 @@ Select a deferral reason
                   <fieldset class="govuk-fieldset" role="group" aria-describedby="partial-date-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular">
 
-                        Extension of time <span class="govuk-!-font-weight-regular">&dash; lorum ipsum (optional)</span>
+                        Extension of time <span class="govuk-!-font-weight-regular">&dash; bring forward (optional)</span>
 
                     </legend>
                     <div id="partial-date-hint" class="govuk-hint govuk-!-font-size-16">
@@ -248,5 +248,37 @@ Select a deferral reason
   </div>
 </div>
 
+<script>
+
+  //********* THIS JAVASCRIPT WILL ALREADY EXIST WITHIN THE BUILD (added previously) ******************
+
+  document.addEventListener('DOMContentLoaded', function () {//loads script on page load - you might not need this if you already have code within such an event listener
+
+  //************************ reset button for this form starts **********************
+  const theDeferralForm = document.getElementById('deferral-form');
+  if (theDeferralForm){//only run if the ID exists on this page. Stops it running on every other page.
+
+    const resetBtn = document.getElementById('reset-btn');
+
+    resetBtn.addEventListener('click', function () {
+      theDeferralForm.reset();//the std HTML reset button type will work for non-JS browsers too
+
+      theDeferralForm.querySelectorAll('input[type="radio"][aria-expanded]').forEach(function (theRadio) {
+        theRadio.setAttribute('aria-expanded', 'false');
+      });
+
+      theDeferralForm.querySelectorAll('div.govuk-radios__conditional').forEach(function (theDiv) {
+        theDiv.classList.add('govuk-radios__conditional--hidden');
+
+        theDiv.querySelectorAll('input[type="radio"]:checked').forEach(function (theRadio) {
+          theRadio.checked = false;
+        });
+      });
+    });
+  }
+  //************************ reset button for this form ends **********************
+});
+
+</script>
 
 {% endblock %}
