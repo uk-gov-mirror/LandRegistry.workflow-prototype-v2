@@ -1,0 +1,45 @@
+{#
+  For guidance on how to use layouts see:
+  https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+
+  this std layout is used for Workflow pages: featuring the NEW WF header design ...
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% set bodyClasses = "hmlr-wf" %}
+
+{% block stylesheets %}
+  {{ super() }}
+
+  <link href="/public/stylesheets/legacy/legacy-wf-styles.min.css" media="screen" rel="stylesheet" />
+  <link href="/public/css/font.css" rel="stylesheet" type="text/css" />  
+  <link href="/public/css/presentation.css" rel="stylesheet" type="text/css" />
+
+  <script>
+    document.querySelectorAll('link[rel="stylesheet"], style').forEach(el => el.disabled = false);
+  </script>
+  
+{% endblock %}
+
+
+
+{% if (GOVUKPrototypeKit.isDevelopment) %}
+  {% set footerItems = [
+    {
+      href: "/manage-prototype",
+      text: "Manage your prototype"
+    }, {
+      href: "/manage-prototype/clear-data",
+      text: "Clear data"
+    }
+  ] %}
+{% else %}
+  {% set footerItems = [
+    {
+      href: "/manage-prototype/clear-data",
+      text: "Clear data"
+    }
+  ] %}
+{% endif %}
+
