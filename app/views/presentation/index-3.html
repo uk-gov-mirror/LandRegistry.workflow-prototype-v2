@@ -38,86 +38,87 @@
 
 {% block content %}
 
-<div class="govuk-grid-row" id="index-01">
-  <div class="govuk-grid-column-full">
+<div class="govuk-grid-row" id="index-03">
+  <div class="govuk-grid-column-two-thirds">
       
         <h1 class="govuk-heading-l">
-          Flow of the <abbr>DOM</abbr> 
+          ARIA attributes 
         </h1>
 
         <p class="govuk-body">
-          <a href="#" class="govuk-link govuk-link--no-visited-state">
-            Hello world 1
-          </a>
+          ARIA (Accessible Rich Internet Applications) attributes are additional <abbr>HTML</abbr> attributes, such as aria-label and aria-describedby, that provide extra information to assistive technologies like screen readers when native <abbr>HTML</abbr> alone is not sufficient. They help communicate an element's purpose, state, relationships, and behaviour, but they do not change how the element actually works or looks.
         </p>
 
         <p class="govuk-body">
-          <a href="#" class="govuk-link govuk-link--no-visited-state">
-            Hello world 2
-          </a>
+          As a general rule we should use native <abbr>HTML</abbr> semantics (elements) first, and only add ARIA attributes when <abbr>HTML</abbr> cannot provide the required accessibility information.
         </p>
 
-        <!--div class="myDiv">
-          Hello again
-        </div-->
-
-        <div class="govuk-grid-row min-height-50vh">
-
-          <div class="govuk-grid-column-two-thirds background-01">
-            <p class="govuk-body">
-              <a href="#" class="govuk-link govuk-link--no-visited-state">
-                Hello world 3
-              </a>
-            </p>
-
-            <div class="govuk-form-group">
-              <h1 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--m" for="more-detail">
-                  Tell us about your plans
-                </label>
-              </h1>
-              <div id="more-detail-hint" class="govuk-hint govuk-!-font-size-16">
-                Do not include personal or financial information
-              </div>
-              <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
-            </div>
-
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-              Submit
-            </button>            
-
-
-          </div>
-
-          <div class="govuk-grid-column-one-third background-02">
-
-            <p class="govuk-body">
-              <a href="#" class="govuk-link govuk-link--no-visited-state">
-                Hello world 4
-              </a>
-            </p>
-
-            <div class="govuk-warning-text">
-              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-              <strong class="govuk-warning-text__text govuk-!-font-size-16">
-                <span class="govuk-visually-hidden">Warning</span>
-                Before you submit your plan read these rules
-              </strong>
-            </div>
-
-            <p class="govuk-body-s">The rules:</p>
-
-            <ul class="govuk-list govuk-list--bullet govuk-!-font-size-16">
-              <li>Avoid circumlocution</li>
-              <li>Avoid sesquipedalian prose</li>
-              <li>Avoid bureaucratese</li>
-              <li>Avoid being periphrastic</li>
-            </ul>            
-
-          </div>          
-
+        <div class="govuk-inset-text govuk-!-font-weight-bold">
+          &quot;No ARIA is better than bad ARIA&quot;
         </div>
         
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h2 class="govuk-heading-s">
+          Example 1 - Broken promises
+        </h2>
+
+        <p class="govuk-body-s">
+          We should avoid replacing natural <abbr>HTML</abbr> elements and whacking in an ARIA attribute to fix it.
+        </p>
+
+        <div role="button" style="border: 1px solid #000; width: fit-content; padding: 3px 6px; border-radius: 2px; background-color: #eee; cursor: pointer; font-size: 80%;">
+          Submit
+        </div>
+
+        <p class="govuk-body-s govuk-!-margin-top-6">
+          Its a broken promise: you can't have a true 'focus' state, or keyboard tab on it, for example.
+        </p>         
+
+        <p class="govuk-body-s">
+          We should keep excessive ARIA clutter to a minimum. Almost as bad is:
+        </p>    
+        
+        <button type="submit" role="button">
+          Submit
+        </button>
+
+        <!--p class="govuk-body-s govuk-!-margin-top-6">
+          ' role="main" ' on a 'main' <abbr>HTML</abbr> element is redundant. 
+        </p--> 
+        
+        <p class="govuk-body-s govuk-!-margin-top-6">
+          Different support by <abbr>NVDA</abbr>, JAWS, VoiceOver, TalkBack, and various browsers. 
+        </p>         
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h2 class="govuk-heading-s">
+          Example 2 - Divergence 
+        </h2>
+
+        <p class="govuk-body-s">
+          Avoid ARIA text being out of sync with the element/page:
+        </p>
+
+        <a href="#" class="govuk-link govuk-link--no-visited-state" aria-label="Go to the homepage">Home</a>
+
+        <p class="govuk-body-s govuk-!-margin-top-6">
+          This is redundant, creates maintenance risks (if changing the link text to 'Sign-in', for example), and questions the success of the design. Also, it might sometimes be read-out as "Go to homepage, link" instead of "Home, link". 
+        </p>
+
+        <p class="govuk-body-s">
+          This next example in particular creates confusion: 
+        </p>
+        
+        <button type="submit" class="govuk-button" aria-label="Save your answers">
+          Submit 
+        </button>
+
+        <p class="govuk-body-s">
+          Situations where aria-label is genuinely useful might be when there is no suitable visible text, on an <abbr>SVG</abbr> banner icon, for example.
+        </p>
+
 
 
   </div>
