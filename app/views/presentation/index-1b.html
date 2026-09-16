@@ -38,55 +38,65 @@
 
 {% block content %}
 
+<div class="govuk-grid-row" id="index-01b">
+  <div class="govuk-grid-column-full">
+      
+        <h1 class="govuk-heading-l">
+          Flow of the <abbr>DOM</abbr> 
+        </h1>
+
+
         <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-full background-03">
-      <h1 class="govuk-heading-l" id="h1">
-        Header 1 - Main heading
-      </h1>
+          <div class="govuk-grid-column-two-thirds">
+
+            <p class="govuk-body-s">The rules:</p>
+
+            <ul class="govuk-list govuk-list--bullet govuk-!-font-size-16">
+              <li>Avoid circumlocution</li>
+              <li>Avoid sesquipedalian prose</li>
+              <li>Avoid bureaucratese</li>
+              <li>Avoid being periphrastic</li>
+            </ul>   
+            
+            
+
+          </div>           
+
+        </div>
+
+        <div class="govuk-grid-row">
+
+          <div class="govuk-grid-column-two-thirds">
+
+            <div class="govuk-form-group govuk-!-margin-top-4">
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--m" for="more-detail">
+                  Tell us about your plans
+                </label>
+              </h1>
+              <div id="more-detail-hint" class="govuk-hint govuk-!-font-size-16">
+                Do not include personal or financial information
+              </div>
+              <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+            </div>
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Submit
+            </button>            
+
+            
+
+          </div>
+
+         
+
+        </div>
+        
+
+
   </div>
-</div>  
-
-
-  <div class="govuk-grid-row min-height-50vh" id="index-01">
-
-
-        <div class="govuk-grid-column-one-quarter govuk-!-padding-5 background-02">
-
-          <!--a href="#h1" class="govuk-skip-link" data-module="govuk-skip-link">Skip past the page navigation</a-->
-
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li><a href="#" class="govuk-link govuk-link--no-visited-state">Page 1</a></li>
-            <li><a href="#" class="govuk-link govuk-link--no-visited-state">Page 2</a></li>
-            <li><a href="#" class="govuk-link govuk-link--no-visited-state">Page 3</a></li>
-            <li><a href="#" class="govuk-link govuk-link--no-visited-state">Page 4</a></li>
-          </ul>            
-
-        </div>  
-
-
-        <div class="govuk-grid-column-three-quarters govuk-!-padding-5 background-01">
-
-          <h2 class="govuk-heading-m">Header 2</h2>
-
-          <p class="govuk-body-s">
-            <abbr>HTML</abbr> content is rendered in a natural reading order known as the document flow. As the browser encounters each element in the <abbr>HTML</abbr> source, it lays that element out on the page before moving to the next one. Block-level elements such as headings, paragraphs, lists and elements typically start on a new line and occupy the available width, causing subsequent elements to appear beneath them. This predictable top-to-bottom flow forms the structure that both browsers and assistive technologies use to understand and present a page. <a href="#" class="govuk-link govuk-link--no-visited-state">Click here</a> for more information.
-
-            <!--We have published further <a href="#" class="govuk-link govuk-link--no-visited-state">information about HTML DOM structures</a>. -->
-
-            <!-- title="HyperText Markup Language" -->
-             
-          </p>
-
-          <p class="govuk-body-s">
-            The order of elements in the <abbr>HTML</abbr> is important because it determines how the content is read by screen readers, keyboard users and search engines. Although <abbr>CSS</abbr> can visually reposition content using techniques such as Flexbox or Grid, the underlying <abbr>HTML</abbr> flow remains the source of truth for accessibility and navigation. For this reason, a well-structured page should place content in a logical order in the markup before any visual styling is applied, ensuring that the page remains understandable and usable regardless of how it is displayed. <a href="#" class="govuk-link govuk-link--no-visited-state">Click here</a> for more information.
-          </p>
-
-
-        </div>   
-       
-
-  </div>
+</div>
 
 {% endblock %}
 
